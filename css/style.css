@@ -17,17 +17,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    perspective: 900px;         /*EFFECTS*/
+    perspective: 900px;         /*2_EFFECTS*/
 }
 .item{
     flex-basis: 30%;
+    
 }
 .card{
     display: flex;
     flex-direction: column;
     padding: 50px;
-    transform: rotateX(45deg) scale(0.7);   /*EFFECTS*/
-    transition: 0.5s all ease;            /*EFFECTS*/
+    transform: rotateX(45deg) scale(0.7);   /* 1_EFFECTS*/
+    transition: 0.5s all ease;            /*4_EFFECTS*/
 }
 .img_container{
     flex-basis: 40%;
@@ -52,9 +53,16 @@ img{
     padding-bottom: 20px;
 
 }
-.card:hover{              /*EFFECTS*/ 
+.card:hover{              /*3_EFFECTS*/ 
     cursor: pointer;
     transform: rotate(0deg) scale(1);
     transition: 0.5s all ease;
     z-index:400;
 }
+
+/* COMMENTI:
+Una volta creato l'html e il css di base, bidogna dare alle cards quella posizione iniziale inclinata. Con rotateX() (vd 1_EFFECTS) si ruota l'elemento sull'asse delle X di 45deg per dargli l'effetto 3d. Con scale() si va a decrementare la grandezza dell'elemento.
+La proprietà perspective (vd 2_EFFECTS) definisce quanto lontano deve essere l'oggetto dall'utente; a valori più bassi risulterà un effetto 3d piu intenso rispetto che a valori più alti (effetto 3d meno intenso). PARTICOLARITA': la proprietà perspective viene applicata al FIGLIO dell'elemento che ha questa proprietà e non all'elemento stesso!
+Adesso bisogna aggiungere lo stato di hover alla card (vd 3_EFFECTS), dove andremo a conferire all'elemento la sua normale posizione, aggiungendo una transition.
+Infine (vd 4_EFFECTS) bisogna aggiungere una transition a card per regolare "l'animazione di rientro". 
+*/
